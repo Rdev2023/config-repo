@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: ORDER-SERVICE
+  cloud:
+    discovery:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:mem:orderdb
+    driver-class-name: org.h2.Driver
+    username: so
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.openfeign: DEBUG
+    feign: DEBUG
+    com.netflix.discovery: DEBUG
+    org.springframework.cloud.netflix.eureka: DEBUG
